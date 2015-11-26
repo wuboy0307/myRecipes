@@ -1,15 +1,15 @@
-<h1>Make New Recipes</h1>
-<hr/>
+<%= render 'shared/page_title',title: "Make New Recipes" %>
 <% @recipes.each do |recipe| %>
 <div class="row">
   <div class="col-md-2">
-    <section class="chef know how">
+    <section class="chef_know_how">
       <%= gravatar_for recipe.chef,size:100 %>
       <h5>Chef name:<%= recipe.chef.name %></h5>
     </section>
   </div>
   <div class="col-lg-8 well">
-    <h3><%= link_to recipe.name," " %></h3>
+    <h3><%= link_to recipe.name,recipe_path(recipe) %></h3>
+    <%= link_to "View Recipe",recipe_path(recipe),class:"btn btn-warning btn-small pull-right" %>
     <p>
       <%= recipe.summary%>
     </p>
