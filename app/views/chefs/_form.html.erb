@@ -1,0 +1,17 @@
+<%= render 'shared/errors',obj: @chef %>
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+     <%= form_for @chef do |i| %>
+       <%= i.label :name %>
+       <%= i.text_field :name %>
+       <%= i.label :email %>
+       <%= i.email_field :email %>
+       <%= i.label :password %>
+       <%= i.password_field :password %>
+       <span class="pic">
+         <%= i.file_field :picture, accept: 'image/jpeg,image/png,image/gif' %>
+       </span>
+       <%= i.submit(@chef.new_record? ? "Register": "Edit Profile",class:"btn btn-success") %>
+       <% end %>
+ </div>
+</div>

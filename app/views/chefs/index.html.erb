@@ -1,0 +1,25 @@
+<%= render 'shared/page_title',title: "Our Chefs" %>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Chefs",chefs_path %>
+  </li>
+  <li>
+    <%= link_to "Recipes",recipes_path %>
+  </li>
+</ul>
+  <div class="col-md-4 col-md-offset-4 center">
+      <%= will_paginate @chef %>
+  </div>
+
+  <% @chefs.each do |chef| %>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 center">
+          <section class="chef_know_how">
+            <%= link_to (gravatar_for chef,size:100),chef_path(chef) %>
+            <h5>Chef name:<%= chef.name %></h5>
+          </section>
+        </div>
+      </div>
+  <% end %>
+  
